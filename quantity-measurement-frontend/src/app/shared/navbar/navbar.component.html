@@ -1,0 +1,12 @@
+<header class="navbar">
+  <div class="navbar-brand">
+    <span class="navbar-icon">⚖️</span>
+    <h1 class="navbar-title">Quantity Measurement</h1>
+  </div>
+  <div class="navbar-right">
+    @if (user) {
+      <span class="welcome-msg">Welcome, {{ user.name }}</span>
+    }
+    <button class="logout-btn" (click)="logout()">← Logout</button>
+  </div>
+</header>

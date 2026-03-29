@@ -1,0 +1,63 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { LoginRequest, RegisterRequest, AuthResponse, User } from '../models/auth.models';
+
+@Injectable({ providedIn: 'root' })
+export class AuthService {
+
+  private readonly API = '/api/v1/auth';
+  private readonly TOKEN_KEY = 'qm_token';
+  private readonly USER_KEY = 'qm_user';
+
+  private currentUserSubject = new BehaviorSubject<User | null>(this.loadUser());
+  currentUser$ = this.currentUserSubject.asObservable();
+
+  constructor(private http: HttpClient) {}
+
+  register(data: RegisterRequest): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${this.API}/register`, data).pipe(
+      tap(res => this.saveSession(res))
+    );
+  }
+
+  login(data: LoginRequest): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${this.API}/login`, data).pipe(
+      tap(res => this.saveSession(res))
+    );
+  }
+
+  logout(): void {
+    localStorage.removeItem(this.TOKEN_KEY);
+    localStorage.removeItem(this.USER_KEY);
+    this.currentUserSubject.next(null);
+  }
+
+  getToken(): string | null {
+    return localStorage.getItem(this.TOKEN_KEY);
+  }
+
+  isLoggedIn(): boolean {
+    return !!this.getToken();
+  }
+
+  getCurrentUser(): User | null {
+    return this.currentUserSubject.value;
+  }
+
+  private saveSession(res: AuthResponse): void {
+    localStorage.setItem(this.TOKEN_KEY, res.token);
+    const user: User = {
+      email: res.email,
+      role: res.role,
+      name: res.name
+    };
+    localStorage.setItem(this.USER_KEY, JSON.stringify(user));
+    this.currentUserSubject.next(user);
+  }
+
+  private loadUser(): User | null {
+    const raw = localStorage.getItem(this.USER_KEY);
+    return raw ? JSON.parse(raw) : null;
+  }
+}
