@@ -157,22 +157,22 @@ Additional UI/documentation or supporting frontend page.
 
 ## 🚀 How to Run the Project
 
-### 1️⃣ Clone the repository
+###  Clone the repository
 ```bash
 git clone https://github.com/Ananya-Shukla99/QuantityMeasurementApp-Frontend.git
 ```
 
-### 2️⃣ Navigate to the project directory
+###  Navigate to the project directory
 ```bash
 cd FrontEnd-Main-HTML-CSS
 ```
 
-### 3️⃣ Checkout the HTML/CSS/JS frontend branch
+###  Checkout the HTML/CSS/JS frontend branch
 ```bash
 git checkout feature/UC19-QuantityMeasurementFrontend-html-css-js
 ```
 
-### 4️⃣ Open the application in browser
+###  Open the application in browser
 You can directly open:
 
 ```text
