@@ -10,15 +10,11 @@
 
       <div class="tabs">
         <span class="tab active">SIGNUP</span>
-        <span class="tab inactive" routerLink="/login">LOGIN</span>
+        <span class="tab inactive" [routerLink]="['/login']" [queryParams]="{ returnUrl: returnUrl }">LOGIN</span>
       </div>
 
-      @if (successMsg) {
-        <div class="success-banner">{{ successMsg }}</div>
-      }
-      @if (errorMsg) {
-        <div class="error-banner">{{ errorMsg }}</div>
-      }
+      <div *ngIf="successMsg" class="success-banner">{{ successMsg }}</div>
+      <div *ngIf="errorMsg" class="error-banner">{{ errorMsg }}</div>
 
       <form (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
 
@@ -90,7 +86,7 @@
 
         <p class="bottom-text">
           Already have an account?
-          <a routerLink="/login">Login</a>
+          <a [routerLink]="['/login']" [queryParams]="{ returnUrl: returnUrl }">Login</a>
         </p>
 
       </form>

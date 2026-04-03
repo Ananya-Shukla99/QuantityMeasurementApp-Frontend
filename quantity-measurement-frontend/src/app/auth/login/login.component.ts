@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 
 @Component({
@@ -20,8 +20,23 @@ export class LoginComponent {
   showPassword = false;
   loading = false;
   errorMsg = '';
+  returnUrl = '/quantity';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit(): void {
+    this.returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/quantity';
+
+    const oauthError = this.route.snapshot.queryParamMap.get('oauthError');
+
+    if (oauthError === 'missing_token') {
+      this.errorMsg = 'OAuth sign-in failed: the callback did not include a token.';
+    }
+  }
 
   get email() { return this.form.get('email')!; }
   get password() { return this.form.get('password')!; }
@@ -43,7 +58,7 @@ export class LoginComponent {
     }).subscribe({
       next: () => {
         this.loading = false;
-        this.router.navigate(['/quantity']);
+        this.router.navigateByUrl(this.returnUrl);
       },
       error: (err) => {
         this.loading = false;

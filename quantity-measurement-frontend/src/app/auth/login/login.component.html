@@ -13,13 +13,11 @@
       <!-- Tabs -->
       <div class="tabs">
         <span class="tab active">LOGIN</span>
-        <span class="tab inactive" routerLink="/register">SIGNUP</span>
+        <span class="tab inactive" [routerLink]="['/register']" [queryParams]="{ returnUrl: returnUrl }">SIGNUP</span>
       </div>
 
       <!-- Error Banner -->
-      @if (errorMsg) {
-        <div class="error-banner">{{ errorMsg }}</div>
-      }
+      <div *ngIf="errorMsg" class="error-banner">{{ errorMsg }}</div>
 
       <!-- Login Form -->
       <form (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
@@ -73,7 +71,7 @@
 
         <p class="bottom-text">
           Don't have an account?
-          <a routerLink="/register">Signup</a>
+          <a [routerLink]="['/register']" [queryParams]="{ returnUrl: returnUrl }">Signup</a>
         </p>
 
         <div class="divider">
@@ -81,10 +79,10 @@
         </div>
 
         <div class="social-buttons">
-          <a href="http://localhost:8080/oauth2/authorization/github" class="social-btn github-btn">
+          <a href="http://localhost:8081/oauth2/authorization/github" class="social-btn github-btn">
             GitHub
           </a>
-          <a href="http://localhost:8080/oauth2/authorization/google" class="social-btn google-btn">
+          <a href="http://localhost:8081/oauth2/authorization/google" class="social-btn google-btn">
             Google
           </a>
         </div>

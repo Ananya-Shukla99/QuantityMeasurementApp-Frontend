@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 
 @Component({
@@ -22,8 +22,15 @@ export class RegisterComponent {
   loading = false;
   errorMsg = '';
   successMsg = '';
+  returnUrl = '/quantity';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
+    this.returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/quantity';
+  }
 
   get name() { return this.form.get('name')!; }
   get email() { return this.form.get('email')!; }
@@ -49,7 +56,7 @@ export class RegisterComponent {
       next: () => {
         this.loading = false;
         this.successMsg = 'Account created! Redirecting...';
-        setTimeout(() => this.router.navigate(['/quantity']), 1500);
+        setTimeout(() => this.router.navigateByUrl(this.returnUrl), 1500);
       },
       error: (err) => {
         this.loading = false;

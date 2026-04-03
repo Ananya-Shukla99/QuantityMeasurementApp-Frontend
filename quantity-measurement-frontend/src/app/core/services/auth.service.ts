@@ -45,6 +45,24 @@ export class AuthService {
     return this.currentUserSubject.value;
   }
 
+  setToken(token: string): void {
+    localStorage.setItem(this.TOKEN_KEY, token);
+  }
+
+  storeToken(token: string): void {
+    this.setToken(token);
+  }
+
+  setSession(token: string, user: User): void {
+    localStorage.setItem(this.TOKEN_KEY, token);
+    localStorage.setItem(this.USER_KEY, JSON.stringify(user));
+    this.currentUserSubject.next(user);
+  }
+
+  me() {
+    return this.http.get<User>(`${this.API}/me`);
+  }
+
   private saveSession(res: AuthResponse): void {
     localStorage.setItem(this.TOKEN_KEY, res.token);
     const user: User = {
