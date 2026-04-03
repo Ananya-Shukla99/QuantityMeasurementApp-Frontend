@@ -68,6 +68,7 @@ export class OauthCallbackComponent implements OnInit {
         return;
       }
 
+      
       this.authService.storeToken(token);
 
       this.authService.me().subscribe({
