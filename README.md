@@ -484,16 +484,19 @@ src/
 
 ## 🚀 How to Run the Project
 
+### 1️⃣ Clone the repository
 ### Clone the repository
 ```bash
 git clone https://github.com/Ananya-Shukla99/QuantityMeasurementApp-Frontend.git
 ```
 
+### 2️⃣ Navigate to the project directory
 ### Navigate to the project directory
 ```bash
 cd QuantityMeasurementApp-Frontend
 ```
 
+### 3️⃣ Checkout the Angular frontend branch
 ### Checkout the Angular frontend branch
 ```bash
 git checkout feature/frontend-angular
@@ -501,16 +504,19 @@ git checkout feature/frontend-angular
 
 > If your actual branch name is different, replace it accordingly.
 
+### 4️⃣ Install dependencies
 ###  Install dependencies
 ```bash
 npm install
 ```
 
+### 5️⃣ Start the development server
 ###  Start the development server
 ```bash
 ng serve
 ```
 
+### 6️⃣ Open in browser
 ### 6️ Open in browser
 ```text
 http://localhost:4200
