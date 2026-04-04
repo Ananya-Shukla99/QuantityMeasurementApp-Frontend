@@ -1,0 +1,15 @@
+<header class="navbar">
+  <div class="navbar-brand">
+    <img src="/logo.jpeg" alt="Quantity Measurement logo" class="navbar-logo" />
+    <div class="brand-copy">
+      <h1 class="navbar-title">Quantity Measurement</h1>
+      <p class="navbar-subtitle">Precision Workspace</p>
+    </div>
+  </div>
+  <div class="navbar-right">
+    @if (user) {
+      <span class="welcome-msg">Welcome, {{ user.name }}</span>
+    }
+    <button class="logout-btn" (click)="logout()">← Logout</button>
+  </div>
+</header>

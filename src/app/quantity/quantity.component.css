@@ -1,0 +1,233 @@
+.main {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 36px 16px;
+  background: transparent;
+}
+
+.card {
+  width: 100%;
+  max-width: 760px;
+  background: linear-gradient(180deg, #ffffff, #f9f9f9);
+  border-radius: 22px;
+  padding: 30px;
+  border: 1px solid rgba(255,255,255,0.8);
+  box-shadow: 0 26px 56px rgba(0,0,0,0.32);
+}
+
+.section-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #8f8f8f;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 20px 0 10px;
+}
+
+.section-label:first-child { margin-top: 0; }
+
+.type-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.type-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 10px;
+  border: 1.5px solid #e7e7e7;
+  border-radius: 14px;
+  background: #fcfcfc;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  font-size: 0.82rem;
+  color: #555;
+}
+
+.type-btn:hover {
+  border-color: #7c4dff;
+  background: #f3eeff;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(94, 53, 177, 0.16);
+}
+
+.type-btn.active {
+  border-color: #7c4dff;
+  background: #ede4ff;
+  color: #5e35b1;
+  font-weight: 600;
+}
+
+.type-btn .icon { font-size: 24px; }
+
+.action-tabs {
+  display: flex;
+  gap: 10px;
+}
+
+.tab-btn {
+  padding: 9px 20px;
+  border: 1.5px solid #e5e5e5;
+  border-radius: 999px;
+  background: #fafafa;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #666;
+  transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+  border-color: #7c4dff;
+  color: #5e35b1;
+}
+
+.tab-btn.active {
+  border-color: #7c4dff;
+  background: linear-gradient(135deg, #7c4dff, #5e35b1);
+  color: white;
+}
+
+.arith-op {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.op-label {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #8a8a8a;
+}
+
+.op-btn {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid #e6e6e6;
+  border-radius: 10px;
+  background: #fafafa;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: #555;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.op-btn:hover { border-color: #7c4dff; color: #5e35b1; }
+.op-btn.active {
+  border-color: #7c4dff;
+  background: linear-gradient(135deg, #7c4dff, #5e35b1);
+  color: white;
+}
+
+.inputs-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.input-group label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #6b6b6b;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.input-group input,
+.input-group select {
+  padding: 11px 12px;
+  border: 1.5px solid #e8e8e8;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  background: #fcfcfc;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  border-color: #7c4dff;
+  box-shadow: 0 0 0 4px rgba(124, 77, 255, 0.15);
+  background: #fff;
+}
+
+.calc-btn {
+  width: 100%;
+  margin-top: 24px;
+  padding: 14px;
+  background: linear-gradient(135deg, #7c4dff, #5e35b1);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  letter-spacing: 0.02em;
+  box-shadow: 0 14px 24px rgba(94, 53, 177, 0.32);
+}
+
+.calc-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 28px rgba(94, 53, 177, 0.4);
+}
+
+.calc-btn:disabled {
+  background: #8d8d8d;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.result-box {
+  margin-top: 20px;
+  padding: 18px 20px;
+  background: #f3eeff;
+  border: 1.5px solid #d7c6ff;
+  border-radius: 12px;
+}
+
+.result-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #5e35b1;
+  text-align: center;
+}
+
+.error-box {
+  margin-top: 20px;
+  padding: 14px 18px;
+  background: #f8f4ff;
+  border: 1.5px solid #d5c5ff;
+  border-radius: 12px;
+}
+
+.error-text {
+  font-size: 0.86rem;
+  color: #8f5ff0;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .main { padding: 20px 12px; }
+  .card { padding: 22px 16px; }
+  .type-grid { grid-template-columns: repeat(2, 1fr); }
+  .inputs-row { grid-template-columns: 1fr; }
+  .action-tabs { flex-wrap: wrap; }
+}

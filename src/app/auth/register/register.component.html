@@ -1,0 +1,97 @@
+﻿<div class="page">
+  <div class="card">
+
+    <div class="left-panel">
+      <div class="logo-wrap">
+        <img src="/logo.jpeg" alt="Quantity Measurement logo" class="logo-image" />
+      </div>
+      <p class="brand">QUANTITY MEASUREMENT</p>
+    </div>
+
+    <div class="right-panel">
+
+      <div class="tabs">
+        <span class="tab active">SIGNUP</span>
+        <span class="tab inactive" [routerLink]="['/login']" [queryParams]="{ returnUrl: returnUrl }">LOGIN</span>
+      </div>
+
+      <div *ngIf="successMsg" class="success-banner">{{ successMsg }}</div>
+      <div *ngIf="errorMsg" class="error-banner">{{ errorMsg }}</div>
+
+      <form (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
+
+        <div class="input-group">
+          <label>Full Name</label>
+          <input
+            type="text"
+            formControlName="name"
+            placeholder="Enter your full name"
+            [class.error]="name.invalid && name.touched"
+            [class.success]="name.valid && name.touched"
+          />
+          <small class="error-message">
+            @if (name.touched && name.hasError('required')) {
+              <span>Name is required</span>
+            }
+            @if (name.touched && name.hasError('minlength')) {
+              <span>Minimum 2 characters</span>
+            }
+          </small>
+        </div>
+
+        <div class="input-group">
+          <label>Email Id</label>
+          <input
+            type="email"
+            formControlName="email"
+            placeholder="Enter your email"
+            [class.error]="email.invalid && email.touched"
+            [class.success]="email.valid && email.touched"
+          />
+          <small class="error-message">
+            @if (email.touched && email.hasError('required')) {
+              <span>Email is required</span>
+            }
+            @if (email.touched && email.hasError('email')) {
+              <span>Enter a valid email</span>
+            }
+          </small>
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <div class="password-wrapper">
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              formControlName="password"
+              placeholder="Create a password"
+              [class.error]="password.invalid && password.touched"
+              [class.success]="password.valid && password.touched"
+            />
+            <span class="toggle-password" (click)="togglePassword()">
+              {{ showPassword ? '🙈' : '👁' }}
+            </span>
+          </div>
+          <small class="error-message">
+            @if (password.touched && password.hasError('required')) {
+              <span>Password is required</span>
+            }
+            @if (password.touched && password.hasError('minlength')) {
+              <span>Minimum 6 characters</span>
+            }
+          </small>
+        </div>
+
+        <button type="submit" class="btn-primary" [disabled]="loading">
+          {{ loading ? 'Creating account...' : 'Signup' }}
+        </button>
+
+        <p class="bottom-text">
+          Already have an account?
+          <a [routerLink]="['/login']" [queryParams]="{ returnUrl: returnUrl }">Login</a>
+        </p>
+
+      </form>
+    </div>
+  </div>
+</div>
