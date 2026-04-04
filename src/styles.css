@@ -5,54 +5,74 @@
 }
 
 :root {
-  --blue: #006fe6;
-  --blue-dark: #0057b8;
-  --green: #1db954;
-  --red: #e53e3e;
-  --bg: #d9d9e3;
-  --white: #ffffff;
-  --border: #ddd;
-  --text-primary: #333;
-  --text-muted: #666;
-  --text-light: #999;
+  --accent-red: #7c4dff;
+  --accent-red-dark: #5e35b1;
+  --accent-red-soft: #efe8ff;
+  --black-900: #2b1b52;
+  --black-800: #3b246d;
+  --black-700: #4f3391;
+  --surface: #ffffff;
+  --surface-soft: #f7f7f7;
+  --border: #e5e5e5;
+  --text-primary: #111111;
+  --text-muted: #575757;
+  --text-light: #9a9a9a;
+  --success: #188038;
+  --danger: #d93025;
+  --bg:
+    radial-gradient(circle at 10% 20%, #ece1ff 0%, rgba(236,225,255,0) 38%),
+    radial-gradient(circle at 88% 80%, #e3d7ff 0%, rgba(227,215,255,0) 40%),
+    linear-gradient(145deg, #fbf8ff, #f4eeff 48%, #efebff);
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Google Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   background: var(--bg);
   min-height: 100vh;
+  color: var(--text-primary);
+  letter-spacing: 0.01em;
 }
 
 .btn-primary {
   width: 100%;
-  background: var(--blue);
+  background: linear-gradient(135deg, var(--accent-red), var(--accent-red-dark));
   color: white;
   border: none;
-  padding: 13px;
-  border-radius: 4px;
-  font-size: 16px;
-  font-weight: bold;
+  padding: 13px 16px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 10px 20px rgba(94, 53, 177, 0.28);
 }
 
-.btn-primary:hover { background: var(--blue-dark); }
-.btn-primary:disabled { background: #aaa; cursor: not-allowed; }
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 24px rgba(94, 53, 177, 0.36);
+}
+
+.btn-primary:disabled {
+  background: #8e8e8e;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
 
 input.error {
-  border: 2px solid var(--red) !important;
-  background-color: #fff5f5 !important;
+  border: 1.5px solid var(--danger) !important;
+  background-color: #fff3f2 !important;
 }
 
 input.success {
-  border: 2px solid var(--green) !important;
-  background-color: #f4fff7 !important;
+  border: 1.5px solid var(--success) !important;
+  background-color: #f3fff6 !important;
 }
 
 .error-message {
   display: block;
-  color: var(--red);
+  color: var(--danger);
   font-size: 12px;
-  margin-top: 5px;
+  margin-top: 6px;
   min-height: 16px;
 }
