@@ -3,10 +3,11 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 32px;
-  height: 64px;
-  background: #1a1a2e;
+  height: 72px;
+  background: linear-gradient(100deg, #4a148c, #5e35b1 52%, #7c4dff);
   color: white;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  border-bottom: 1px solid rgba(255,255,255,0.16);
+  box-shadow: 0 8px 26px rgba(58, 26, 114, 0.35);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -15,49 +16,71 @@
 .navbar-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
-.navbar-icon {
-  font-size: 24px;
+.navbar-logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.32);
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .navbar-title {
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 600;
   letter-spacing: 0.02em;
   color: white;
+}
+
+.navbar-subtitle {
+  color: rgba(255,255,255,0.72);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .navbar-right {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
 
 .welcome-msg {
-  font-size: 0.88rem;
-  opacity: 0.85;
+  font-size: 0.84rem;
+  opacity: 0.84;
 }
 
 .logout-btn {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.3);
+  background: linear-gradient(135deg, #8e63ff, #673ab7);
+  border: 1px solid rgba(255,255,255,0.2);
   color: white;
-  padding: 7px 16px;
-  border-radius: 6px;
+  padding: 8px 16px;
+  border-radius: 999px;
   font-size: 0.85rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 16px rgba(74, 20, 140, 0.35);
 }
 
 .logout-btn:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,0.6);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 20px rgba(74, 20, 140, 0.42);
 }
 
 @media (max-width: 768px) {
   .navbar { padding: 0 16px; }
-  .navbar-title { font-size: 0.95rem; }
+  .navbar { height: 66px; }
+  .navbar-title { font-size: 0.92rem; }
+  .navbar-subtitle { display: none; }
   .welcome-msg { display: none; }
 }
