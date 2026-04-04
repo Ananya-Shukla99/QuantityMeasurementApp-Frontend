@@ -1,0 +1,97 @@
+﻿<app-navbar></app-navbar>
+
+<main class="main">
+  <div class="card">
+
+    <div class="section-label">Choose Type</div>
+    <div class="type-grid">
+      @for (config of typeConfigs; track config.measurementType) {
+        <button
+          class="type-btn"
+          [class.active]="selectedConfig === config"
+          (click)="setType(config)">
+          <span class="icon">{{ config.icon }}</span>
+          <span class="label">{{ config.label }}</span>
+        </button>
+      }
+    </div>
+
+    <div class="section-label">Choose Action</div>
+    <div class="action-tabs">
+      @for (action of actions; track action) {
+        <button
+          class="tab-btn"
+          [class.active]="selectedAction === action"
+          (click)="setAction(action)">
+          {{ action | titlecase }}
+        </button>
+      }
+    </div>
+
+    @if (isArithmetic()) {
+      <div class="arith-op">
+        <span class="op-label">Operation:</span>
+        @for (op of ops; track op.value) {
+          <button
+            class="op-btn"
+            [class.active]="selectedOp === op.value"
+            (click)="setOp(op.value)">
+            {{ op.symbol }}
+          </button>
+        }
+      </div>
+    }
+
+    <div class="inputs-row">
+      <div class="input-group">
+        <label>{{ isConversion() ? 'From' : 'Value 1' }}</label>
+        <input type="number" [(ngModel)]="val1" min="0" step="any" />
+        <select [(ngModel)]="unit1">
+          @for (u of selectedConfig.units; track u) {
+            <option [value]="u">{{ u }}</option>
+          }
+        </select>
+      </div>
+
+      @if (!isConversion()) {
+        <div class="input-group">
+          <label>Value 2</label>
+          <input type="number" [(ngModel)]="val2" min="0" step="any" />
+          <select [(ngModel)]="unit2">
+            @for (u of selectedConfig.units; track u) {
+              <option [value]="u">{{ u }}</option>
+            }
+          </select>
+        </div>
+      }
+
+      @if (isConversion()) {
+        <div class="input-group">
+          <label>To</label>
+          <select [(ngModel)]="unit2">
+            @for (u of selectedConfig.units; track u) {
+              <option [value]="u">{{ u }}</option>
+            }
+          </select>
+        </div>
+      }
+    </div>
+
+    <button class="calc-btn" (click)="calculate()" [disabled]="loading">
+      {{ loading ? 'Calculating...' : 'Calculate ↗' }}
+    </button>
+
+    @if (resultText) {
+      <div class="result-box">
+        <div class="result-text">{{ resultText }}</div>
+      </div>
+    }
+
+    @if (errorMsg) {
+      <div class="error-box">
+        <div class="error-text">⚠️ {{ errorMsg }}</div>
+      </div>
+    }
+
+  </div>
+</main>
