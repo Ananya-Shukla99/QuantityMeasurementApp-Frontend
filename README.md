@@ -1,391 +1,346 @@
-# QuantityMeasurementFrontend
-# 🚀 Quantity Measurement Application – Frontend (HTML, CSS, JavaScript)
+# Quantity Measurement Application – Frontend (Angular)
 
-## 📏 Responsive UI for Quantity Conversion & Measurement Operations
+## Responsive UI for Quantity Conversion & Measurement Operations
 
-A clean, responsive, and interactive frontend built using **HTML5, CSS3, and JavaScript** for performing quantity-based operations such as **unit conversion, unit comparison, and arithmetic calculations on measurable quantities**.
-
----
-
-## 📌 Project Overview
-
-The **Quantity Measurement Application – Frontend** is a web-based user interface designed to provide users with an intuitive experience for working with measurable quantities.
-
-This implementation focuses on building the frontend using **core web technologies** to strengthen foundational development skills and demonstrate strong understanding of:
-
-- Semantic HTML structure
-- Responsive CSS layouts
-- JavaScript-based DOM manipulation
-- Event-driven UI updates
-- Dynamic rendering
-- Form handling and validation
+A modern, responsive, and interactive frontend built using **Angular 21** and **TypeScript** for performing quantity-based operations such as **unit conversion, unit comparison, and arithmetic calculations on measurable quantities**.
 
 ---
 
-## 🎯 Objective
+## Project Overview
 
-This branch represents the **Vanilla Frontend Implementation** of the Quantity Measurement Application.
+The **Quantity Measurement Application – Frontend** is a web-based user interface designed to provide users with an intuitive experience for working with measurable quantities. This Angular implementation leverages modern web technologies and best practices to create a scalable, maintainable, and feature-rich application.
 
-The goal of this implementation is to:
+This project demonstrates practical experience with:
 
-- Build the UI using **pure HTML, CSS, and JavaScript**
-- Practice **frontend fundamentals without frameworks**
-- Create a **responsive and dynamic user experience**
-- Implement **modular and maintainable code structure**
-- Simulate a real-world application flow with clean architecture principles
-
----
-
-## 🧠 Development Principles
-
-This project follows modern frontend development best practices:
-
-- ✅ Clean Code Practices  
-- ✅ DRY (Don't Repeat Yourself)  
-- ✅ Modular File Organization  
-- ✅ Reusable UI Logic  
-- ✅ Scalable Frontend Structure  
-- ✅ Responsive Design First Approach  
-- ✅ Semantic and Accessible Markup  
+- Angular framework and component-based architecture
+- TypeScript for type-safe development
+- Reactive forms for robust form handling
+- Angular routing for navigation
+- RxJS for reactive programming
+- Angular services for state management
+- HTTP client for API integration
+- Authentication guards and interceptors
+- Responsive design with CSS/SCSS
 
 ---
 
-## 🛠️ Tech Stack
+## Objective
+
+Build a production-ready Angular frontend for the Quantity Measurement Application that provides:
+
+- **Scalable architecture** following Angular best practices
+- **Type-safe development** using TypeScript
+- **Reusable component structure** for maintainability
+- **Responsive and accessible UI** for all device sizes
+- **Efficient state management** using RxJS and services
+- **Secure authentication** with JWT support
+- **Real-time API integration** with the backend service
+
+---
+
+## Tech Stack
+
+### Core Framework
+- **Angular**: ^21.2.0
+- **TypeScript**: ~5.9.2
+- **RxJS**: ~7.8.0
 
 ### Frontend Technologies
-- **HTML5**
-- **CSS3**
-- **JavaScript (ES6+)**
+- **HTML5** - Semantic markup
+- **CSS3 / SCSS** - Modern styling with variables and mixins
+- **JavaScript (ES6+)** - Enhanced with TypeScript
 
-### CSS Concepts Used
-- Flexbox
-- Grid Layout
-- Float
-- Complex Selectors
-- Pseudo Classes & Pseudo Elements
-- Typography Styling
-- Media Queries
-- Responsive Layout Design
+### Development Tools
+- **Angular CLI**: ^21.2.5
+- **Node.js**: LTS version recommended
+- **npm**: ^10.9.3
 
-### JavaScript Concepts Used
-- DOM Manipulation
-- Event Handling
-- Forms & Validation
-- Conditional Logic
-- Objects & Classes
-- Exception Handling
-- ES6/ES9 Features
-- Async JavaScript
-- Callbacks
-- Promises
-- AJAX / Fetch-based Integration
-- Dynamic UI Rendering
+### Testing & Quality
+- **Vitest**: ^4.0.8 - Unit testing framework
+- **jsdom**: ^28.0.0 - DOM testing utilities
+- **Prettier**: ^3.8.1 - Code formatting
 
 ---
 
-## ✨ Features
+## Features
 
-- 📏 **Quantity Conversion Interface**
-- ⚖️ **Unit Comparison UI**
-- ➕ **Arithmetic Operations on Quantities**
-- 🧾 **Form-based User Input Handling**
-- 🔄 **Dynamic DOM Updates**
-- 🎯 **Input Validation & Error Handling**
-- 📱 **Responsive User Interface**
-- 🎨 **Styled Layout with Semantic HTML**
-- 🧩 **Modular Frontend Structure**
-- ⚡ **Interactive Event-driven Behavior**
+- Quantity Conversion Interface - Convert between different units
+- Unit Comparison UI - Compare multiple quantities
+- Arithmetic Operations - Perform calculations on quantities
+- Authentication System - Login/Register with JWT support
+- Form-based User Input - Reactive forms with validation
+- Dynamic Component Updates - Real-time UI updates with RxJS
+- Input Validation & Error Handling - Comprehensive validation
+- Responsive User Interface - Mobile-first design approach
+- Modular Component Architecture - Reusable, maintainable components
+- HTTP Interceptors - Automatic JWT token handling
+- Route Guards - Protected and guest-only routes
 
 ---
 
-## 🏗️ Frontend Architecture Flow
+## Project Structure
 
-```text
-User Interaction
-      │
-      ▼
-Form Input / Button Events
-      │
-      ▼
-JavaScript Event Handling
-      │
-      ▼
-Validation & Conditional Logic
-      │
-      ▼
-DOM Manipulation / Dynamic Rendering
-      │
-      ▼
-Updated UI Output
+```
+src/
+├── app/
+│   ├── app.config.ts          # Angular configuration
+│   ├── app.routes.ts          # Route definitions
+│   ├── app.ts                 # Root component
+│   ├── app.html               # Root template
+│   ├── app.css                # Global styles
+│   │
+│   ├── auth/                  # Authentication module
+│   │   ├── login/             # Login component
+│   │   ├── register/          # Registration component
+│   │   └── oauth-callback/    # OAuth callback handler
+│   │
+│   ├── core/                  # Core functionality
+│   │   ├── guards/            # Route guards (auth, guest)
+│   │   ├── interceptors/      # HTTP interceptors (JWT)
+│   │   ├── models/            # TypeScript interfaces & types
+│   │   │   ├── auth.models.ts
+│   │   │   └── quantity.models.ts
+│   │   └── services/          # Business logic services
+│   │       ├── auth.service.ts
+│   │       └── quantity.service.ts
+│   │
+│   ├── quantity/              # Quantity operations module
+│   │   ├── quantity.component.ts
+│   │   ├── quantity.component.html
+│   │   └── quantity.component.css
+│   │
+│   └── shared/                # Shared components
+│       └── navbar/            # Navigation bar
+│           ├── navbar.component.ts
+│           ├── navbar.component.html
+│           └── navbar.component.css
+│
+├── main.ts                    # Application entry point
+├── styles.css                 # Global styles
+└── index.html                 # HTML template
+
+public/
+├── favicon.ico
+└── logo.jpeg
+
+angular.json                   # Angular configuration
+tsconfig.json                  # TypeScript configuration
+tsconfig.app.json              # App-specific TS config
+tsconfig.spec.json             # Test TS config
+package.json                   # Project dependencies
+proxy.conf.json                # Development proxy config
 ```
 
 ---
 
-## 📂 Project Structure
+## How to Run the Project
 
-```text
-FrontEnd-Main-HTML-CSS/
-│
-├── css/
-│   ├── home.css
-│   ├── style.css
-│   └── Login.jpeg
-│
-├── html/
-│   ├── index.html
-│   └── document.html
-│
-├── js/
-│   ├── script.js
-│   └── home.js
-│
-└── README.md
-```
-
-> Note: Folder/file names may vary slightly based on branch updates.
-
----
-
-## 📄 Pages Included
-
-### `html/index.html`
-Main entry point for the application UI.
-
-### `html/document.html`
-Additional UI/documentation or supporting frontend page.
-
----
-
-## 🚀 How to Run the Project
-
-###  Clone the repository
+### 1 Clone the repository
 ```bash
 git clone https://github.com/Ananya-Shukla99/QuantityMeasurementApp-Frontend.git
-```
-
-###  Navigate to the project directory
-```bash
 cd FrontEnd-Main-HTML-CSS
 ```
 
-###  Checkout the HTML/CSS/JS frontend branch
-```bash
-git checkout feature/UC19-QuantityMeasurementFrontend-html-css-js
-```
-
-###  Open the application in browser
-You can directly open:
-
-```text
-html/index.html
-```
-
-Or use **Live Server** in VS Code for a better development experience.
-
----
-
-## 💡 Recommended Development Setup
-
-For best results, run the project using:
-
-- **Visual Studio Code**
-- **Live Server Extension**
-- Modern browsers like:
-  - Google Chrome
-  - Microsoft Edge
-  - Mozilla Firefox
-
----
-
-## 📱 Responsive Design Highlights
-
-This frontend is designed to be responsive across multiple screen sizes using:
-
-- **Flexbox**
-- **CSS Grid**
-- **Media Queries**
-- Adaptive spacing and layout behavior
-- Mobile-friendly UI structure
-
----
-
-## 🔥 Key Learning Outcomes
-
-This implementation demonstrates hands-on experience with:
-
-- Semantic HTML page structuring
-- CSS layout systems (Flexbox + Grid)
-- Responsive UI design
-- JavaScript DOM manipulation
-- Event-driven programming
-- Form validation and error handling
-- Dynamic content rendering
-- Modular frontend development using vanilla JavaScript
-
----
-
-## 🧪 Core Concepts Practiced
-
-### HTML & CSS
-- Semantic HTML
-- Page Structure
-- Forms
-- Responsive Layouts
-- Typography & Styling
-- Pseudo Selectors
-- Grid & Flexbox
-
-### JavaScript
-- DOM Selection & Updates
-- Event Listeners
-- Conditional Rendering
-- Object-Oriented JavaScript
-- Async Programming
-- Promises & Callbacks
-- Exception Handling
-- Reusable UI Logic
-
----
-
-## 📌 Branch Information
-
-This README is specifically for the branch:
-
-```bash
-feature/UC19-QuantityMeasurementFrontend-html-css-js
-```
-
-This branch contains the **Vanilla Frontend Implementation** of the Quantity Measurement Application using **HTML, CSS, and JavaScript**.
-
----
-
-## 🤝 Future Enhancements
-
-Potential improvements for future iterations:
-
-- Backend/API integration for real-time conversions
-- Persistent user sessions
-- Better validation feedback
-- Dark mode UI
-- Accessibility improvements
-- Enhanced modular JavaScript architecture
-- Unit testing for UI logic
-
-# 🚀 Quantity Measurement Application – Frontend (Angular)
-
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.5.
-
-## Development server
-
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
----
-
-## 🚀 How to Run the Project
-
-### 1️⃣ Clone the repository
-### Clone the repository
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-### 2️⃣ Navigate to the project directory
-### Navigate to the project directory
-```bash
-cd QuantityMeasurementApp-Frontend
-```
-
-### 3️⃣ Checkout the Angular frontend branch
-### Checkout the Angular frontend branch
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-### 4️⃣ Install dependencies
-###  Install dependencies
+### 2 Install dependencies
 ```bash
 npm install
 ```
 
-### 5️⃣ Start the development server
-###  Start the development server
+### 3 Start the development server
 ```bash
-ng build
+npm start
+# or
+ng serve
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-### 6️⃣ Open in browser
-### 6️ Open in browser
-```text
+Once the server is running, open your browser and navigate to:
+```
 http://localhost:4200
 ```
 
+The application will automatically reload whenever you modify any of the source files.
+
+### 4 Build for production
+```bash
+npm run build
+# or
+ng build
+```
+
+The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build with optimizations.
+
 ---
 
-## 💡 Recommended Development Setup
+## Available Commands
 
-For best development experience, use:
+| Command | Description |
+|---------|-------------|
+| `npm start` | Start development server with hot reload |
+| `npm run build` | Build project for production |
+| `npm test` | Run unit tests with Vitest |
+| `npm run watch` | Build in watch mode during development |
+| `ng generate component <name>` | Generate new component with Angular CLI |
+| `ng generate service <name>` | Generate new service with Angular CLI |
 
-- **Visual Studio Code**
-- **Angular CLI**
-- **Node.js (LTS version)**
-- **Modern browsers**
-  - Google Chrome
+---
+
+## Development Setup
+
+For the best development experience, use:
+
+- **Visual Studio Code** - Recommended IDE
+- **Angular Language Service Extension** - VSCode extension for Angular support
+- **Prettier Extension** - For automatic code formatting
+- **Modern browsers**:
+  - Google Chrome (recommended)
   - Microsoft Edge
   - Mozilla Firefox
 
----
-
-## 📱 Responsive Design Highlights
-
-This Angular frontend is designed to support multiple device sizes using:
-
-- **SCSS-based modular styling**
-- **Angular Material components**
-- **Media Queries**
-- **Flexible layouts**
-- **Reusable responsive UI sections**
+### VS Code Extensions (Recommended)
+- Angular Language Service
+- Angular Schematics
+- Prettier - Code formatter
+- ES7+ React/Redux/React-Native snippets
+- TypeScript Vue Plugin (Volar)
 
 ---
 
-## 🔥 Key Learning Outcomes
+## Responsive Design
 
-This implementation demonstrates practical experience with:
+This Angular frontend is built with a mobile-first approach using:
 
-## Running unit tests
+- **CSS Flexbox** - Modern layout system
+- **CSS Grid** - Complex layout patterns
+- **Media Queries** - Breakpoint-based responsive design
+- **Flexible component design** - Works across all device sizes
+- **Angular Material principles** - Accessible and user-friendly UI
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+---
 
+## Testing
+
+### Running Unit Tests
 ```bash
+npm test
+# or
 ng test
 ```
 
-## Running end-to-end tests
+Tests are executed using **Vitest** with **jsdom** for DOM simulation.
 
-For end-to-end (e2e) testing, run:
-
+### Running End-to-End Tests (Optional)
 ```bash
 ng e2e
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Angular CLI does not come with an end-to-end testing framework by default. You can integrate tools like Cypress or Playwright based on your needs.
+
+---
+
+## Key Angular Concepts
+
+### Components
+- **AppComponent** - Root component
+- **LoginComponent** - User authentication
+- **RegisterComponent** - User registration
+- **QuantityComponent** - Main quantity operations
+- **NavbarComponent** - Navigation UI
+
+### Services
+- **AuthService** - Authentication and authorization logic
+- **QuantityService** - Quantity operations and API calls
+
+### Guards
+- **AuthGuard** - Protects authenticated routes
+- **GuestGuard** - Restricts authenticated users from guest routes
+
+### Interceptors
+- **JwtInterceptor** - Automatically attaches JWT tokens to requests
+
+### Models & Interfaces
+- Auth models for user data
+- Quantity models for measurement data
+
+---
+
+## Authentication Flow
+
+1. User registers or logs in through the UI
+2. **AuthService** handles login/registration requests
+3. JWT token is received and stored
+4. **JwtInterceptor** automatically includes token in subsequent requests
+5. **AuthGuard** checks token validity for protected routes
+6. User session persists until logout
+
+---
+
+## API Integration
+
+The frontend communicates with the backend API through:
+
+- **HttpClient** - Angular's HTTP module
+- **Services** - Abstracted API calls
+- **Interceptors** - Request/response transformation
+- **Proxy Configuration** - `proxy.conf.json` for development
+
+---
+
+## Learning Outcomes
+
+This implementation demonstrates expertise in:
+
+- **Angular Architecture** - Component-based design
+- **TypeScript** - Strong typing and OOP principles
+- **Reactive Programming** - RxJS and Observables
+- **Form Handling** - Reactive and template-driven forms
+- **Routing** - Navigation and lazy loading
+- **HTTP Communication** - RESTful API integration
+- **State Management** - Service-based state
+- **Security** - Authentication, authorization, and JWT
+- **Responsive Design** - Mobile-first CSS architecture
+- **Testing** - Unit tests and component testing
+- **Best Practices** - Clean code, DRY, SOLID principles
+
+---
+
+## Development Workflow
+
+1. **Create a feature branch**
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+2. **Make changes** and test locally
+   ```bash
+   npm start
+   npm test
+   ```
+
+3. **Format code** with Prettier
+   ```bash
+   npx prettier --write "src/**/*.{ts,html,css}"
+   ```
+
+4. **Build and verify**
+   ```bash
+   npm run build
+   ```
+
+5. **Commit and push**
+   ```bash
+   git commit -m "feat: description of changes"
+   git push origin feature/your-feature-name
+   ```
+
+---
 
 ## Additional Resources
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- [Angular Official Documentation](https://angular.dev/)
+- [Angular CLI Reference](https://angular.dev/tools/cli)
+- [TypeScript Documentation](https://www.typescriptlang.org/docs/)
+- [RxJS Documentation](https://rxjs.dev/)
+- [Angular Material](https://material.angular.io/)
+
+---
+
