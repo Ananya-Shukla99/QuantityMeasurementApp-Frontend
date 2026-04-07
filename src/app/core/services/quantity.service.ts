@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { QuantityInputDTO, QuantityMeasurementDTO } from '../models/quantity.models';
+import { environment } from '../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class QuantityService {
 
-  private readonly API = '/api/v1/quantities';
+  private readonly API = environment.apiBaseUrl + environment.apiVersion + '/quantities';
 
   constructor(private http: HttpClient) {}
 

@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { LoginRequest, RegisterRequest, AuthResponse, User } from '../models/auth.models';
+import { environment } from '../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
-  private readonly API = '/api/v1/auth';
-  private readonly TOKEN_KEY = 'qm_token';
-  private readonly USER_KEY = 'qm_user';
+  private readonly API = environment.apiBaseUrl + environment.apiVersion + '/auth';
+  private readonly TOKEN_KEY = environment.tokenKey;
+  private readonly USER_KEY = environment.userKey;
 
   private currentUserSubject = new BehaviorSubject<User | null>(this.loadUser());
   currentUser$ = this.currentUserSubject.asObservable();
