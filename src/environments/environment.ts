@@ -1,14 +1,14 @@
 // Development environment configuration
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://localhost:8080',
+  apiBaseUrl: 'https://srv-d7a8avdm5p6s73b7o8qg.onrender.com',
   apiVersion: '/api/v1',
 
   // OAuth2 Configuration
   oauth2: {
-    githubAuthUrl: 'http://localhost:8080/oauth2/authorization/github',
-    googleAuthUrl: 'http://localhost:8080/oauth2/authorization/google',
-    callbackUrl: 'http://localhost:4200/oauth2/callback'
+    githubAuthUrl: 'https://srv-d7a8avdm5p6s73b7o8qg.onrender.com/oauth2/authorization/github',
+    googleAuthUrl: 'https://srv-d7a8avdm5p6s73b7o8qg.onrender.com/oauth2/authorization/google',
+    callbackUrl: 'https://quantity-measurement-app-frontend-olive.vercel.app/oauth2/callback'
   },
 
   // Token settings
