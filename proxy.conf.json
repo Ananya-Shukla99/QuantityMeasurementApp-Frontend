@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "http://localhost:8080",
+    "target": "https://srv-d7a8avdm5p6s73b7o8qg.onrender.com",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
